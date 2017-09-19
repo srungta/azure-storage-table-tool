@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "azure-storage-table-tool", "azure-storage-table-tool\azure-storage-table-tool.csproj", "{B84B38EC-94D3-4486-B9AE-9AFD6BB407B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B84B38EC-94D3-4486-B9AE-9AFD6BB407B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B84B38EC-94D3-4486-B9AE-9AFD6BB407B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B84B38EC-94D3-4486-B9AE-9AFD6BB407B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B84B38EC-94D3-4486-B9AE-9AFD6BB407B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB8202E3-9B8C-4071-98D8-5A42605C0AA3}
+	EndGlobalSection
+EndGlobal
