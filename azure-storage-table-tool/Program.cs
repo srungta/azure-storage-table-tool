@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace azure_storage_table_tool
 {
-    class Program
+    static class Program
     {
         private const string connectionString = "<Replace Connection String here and then delete later>";
         static void Main(string[] args)
@@ -15,9 +15,13 @@ namespace azure_storage_table_tool
             //Simple message example
             var tableExists = tableClient.CheckIfTableExists(tableName).GetAwaiter().GetResult();
             if (tableExists)
+            {
                 Console.WriteLine($"A table named '{tableName}' exists.");
+            }
             else
+            {
                 Console.WriteLine($"A table named '{tableName}' does not exist.");
+            }
 
             // Insert a simple entity
             tableClient.AddEntity(tableName, new SampleClass("partitionKey", "rowKey") { MyProperty1 = "property1", MyProperty2 = "property2" }, InsertType.Insert, true).GetAwaiter().GetResult();

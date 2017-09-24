@@ -8,26 +8,27 @@ namespace azure_storage_table_tool
 {
     public class TableHelper
     {
-        private readonly CloudStorageAccount storageAccount;
         private readonly CloudTableClient tableClient;
-        private CloudTable table;
-     
+
         public TableHelper(string connectionString)
         {
-            storageAccount = CloudStorageAccount.Parse(connectionString);
+            var storageAccount = CloudStorageAccount.Parse(connectionString);
             tableClient = storageAccount.CreateCloudTableClient();
         }
 
         public async Task<bool> CheckIfTableExists(string tableName)
         {
-            table = tableClient.GetTableReference(tableName);
+            var table = tableClient.GetTableReference(tableName);
             return await table.ExistsAsync();
         }
 
-        public async Task AddEntity<T>(string tableName, T entity, InsertType insertType, bool createIfNotExist = false) where T : ITableEntity
+        public async Task AddEntity<T>(string tableName, T entity, InsertType insertType, bool createIfNotExist) where T : ITableEntity
         {
-            table = tableClient.GetTableReference(tableName);
-            if (!table.Exists() && !createIfNotExist) throw new Exception();
+            var table = tableClient.GetTableReference(tableName);
+            if (!table.Exists() && !createIfNotExist)
+            {
+                throw new AggregateException("Table does not exist.");
+            }
             await table.CreateIfNotExistsAsync();
             switch (insertType)
             {
@@ -42,7 +43,6 @@ namespace azure_storage_table_tool
                     break;
                 default:
                     throw new NotImplementedException();
-                    break;
             }
         }
     }
